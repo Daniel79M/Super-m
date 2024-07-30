@@ -21,7 +21,6 @@ class MainController extends Controller
         $categories = count($this->categoryInterface->index());
         $products = count($this->productInterface->index());
 
-
         return view('welcome', [
             "categories" => $categories,
             "products" => $products,
