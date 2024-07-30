@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Charts\ProductChart;
 use App\Interfaces\ProductInterface;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Category;
 
