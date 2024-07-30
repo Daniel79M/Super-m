@@ -57,4 +57,24 @@
             </a>
         </li>
     </ul>
+
+    <ul>
+        <li>
+            <small>
+                <i class="fa fa-dollar"></i>
+                &nbsp;
+                <b>Gestion de ventes</b>
+            </small>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            <small>
+                <i class="fa fa-diagram"></i>
+                &nbsp;
+                <b>Gestion de statistiques</b>
+            </small>
+        </li>
+    </ul>
 </div>
