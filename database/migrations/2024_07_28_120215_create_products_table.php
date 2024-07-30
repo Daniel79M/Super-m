@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text("long_description")->nullable();
             $table->float("price")->default(0.0);
             $table->integer("quantity")->default(0);
-            $table->string('image')->nullable();
+            $table->string('image')->default();
             $table->foreign("category_id")->references("id")->on("categories")->onDelete('cascade');
             $table->timestamps();
         });

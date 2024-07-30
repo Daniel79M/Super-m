@@ -277,6 +277,24 @@ textarea {
     padding: 20px;
 }
 
+.container{
+    background-color: var(--primary-dark-color);
+    display: inline-block;
+    width: 50%;
+    position: relative;
+
+}
+
+.sous-container{
+    display: flex;
+}
+
+.separator{
+    background-color: white;
+    height: 50px;
+    width: 1px;
+}
+
 @font-face {
     font-family: roboto-regular;
     src: url(../assets/fonts/roboto/Roboto-Regular.ttf);
