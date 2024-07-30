@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Charts\ProductChart;
 use App\Interfaces\ProductInterface;
+use App\Models\Category;
 use App\Models\Product;
 
 class ProductRepository implements ProductInterface
@@ -36,7 +37,7 @@ class ProductRepository implements ProductInterface
     public function chartByCategory()
     {
 
-        $data = Product::select('name')
+        $data = Product::select('category_id')
             ->selectRaw('COUNT(*) as count')
             ->groupBy('category_id')
             ->get();
@@ -50,8 +51,8 @@ class ProductRepository implements ProductInterface
 
         foreach ($json_data as $item) {
             $i++;
-            $names[] = $item['name'];
             $count[] = $item['count'];
+            $names[] = Category::find($item['category_id'])->name;
         }
 
         $chart = new ProductChart;
