@@ -6,7 +6,7 @@
     <div class="wrap-content">
         @include('includes.appbar')
 
-        <form action="{{ route('products.store') }}" class="category-form" method="POST">
+        <form action="{{ route('products.store') }}" class="category-form" method="POST" enctype="multipart/form-data">
             @csrf
 
             <br /><br /><br /><br />
@@ -41,6 +41,12 @@
                     <option value="">Pas de catégorie !</option>
                 @endforelse
             </select>
+            <br />
+
+            <label for="file"><b>Ajouter une image</b> [Facultatif]</label>
+            <div>
+                <input type="file" name="image" id="image" class="form-control">
+            </div>
             <br />
 
             <label for="name"><b>Nom du produit</b></label>
@@ -81,7 +87,7 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
-                placeholder: "Saisir une lingue description ...",
+                placeholder: "Saisir une longue description ...",
                 height: 150
             });
         });

@@ -51,16 +51,25 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->storeAs('public/images', $imageName);
+
         $data = [
             "name" => $request->name,
+            "image" => $imageName,
             "category_id" => $request->category_id,
             "price" => $request->price,
             "quantity" => $request->quantity,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
             "short_description" => $request->short_description,
-        ];
-
+        ];  
+        
         DB::beginTransaction();
 
         try {
