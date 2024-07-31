@@ -44,6 +44,7 @@
                         <td class="text-right">
                             <a href="{{ route('products.index') }}" class="button success">
                                 <i class="fas fa-arrow-right-long"></i>
+                                
                             </a>
                         </td>
                     </tr>

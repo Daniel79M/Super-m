@@ -27,21 +27,6 @@ class MainController extends Controller
         $categories = count($this->categoryInterface->index());
         $products = count($this->productInterface->index());
 
-        // ModelsUser::find(2)->delete();
-
-        // ModelsUser::create([
-        //     'name' => 'damaz',
-        //     'email' => 'damaz@gmail.com',
-        //     'password' => Hash::make('1212')
-
-        // ]);
-
-        // ModelsUser::create([
-        //     'name' => 'Caissier',
-        //     'email' => 'caissier@gmail.com',
-        //     'password' => '5555',
-        // ]);
-
 
         return view('welcome', [
             "categories" => $categories,

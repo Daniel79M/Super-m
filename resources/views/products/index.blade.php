@@ -31,6 +31,7 @@
                 <table id="datatable" class="stripe">
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Nom</th>
                             <th>Prix</th>
                             <th>Quantité</th>
@@ -43,12 +44,13 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>
+                                    <img src="/storage/images/<?= $product->image ?>" width="40" alt="img">
+                                </td>
+                                <td>
                                     {{ $product->name }}
                                 </td>
                                 <td>
-                                                                      {{-- {{ number_format($product->price, 0, " ") }} F CFA --}}
-
-                                                                      {{ number_format($product->price, 0, " ") }} F CFA
+                                    {{-- {{ number_format($product->price, 0, " ") }} F CFA --}}
                                 </td>
                                 <td>
                                     {{ $product->quantity }}
