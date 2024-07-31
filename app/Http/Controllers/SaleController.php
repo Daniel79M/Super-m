@@ -61,7 +61,7 @@ class SaleController extends Controller
 
         // Ajouter des produits à la vente
         foreach ($selectedProducts as $productId) {
-            $quantity = $quantities[$productId] ?? 0;
+            $quantity = $quantity[$productId] ?? 0;
 
             Sale::create([
                 'sale_id' => $sale->id,

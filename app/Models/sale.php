@@ -15,6 +15,10 @@ class sale extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'entire',
+        'name',
+        'price',
+        'quantity',
+        'total',
+        'fulltotal',
     ];
 }

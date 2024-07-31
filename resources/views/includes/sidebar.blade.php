@@ -106,8 +106,8 @@
 
     <ul>
         <li>
-            <a href="{{ route('categories.index') }}">
-                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+            <a href="{{ route('sales.create') }}">
+                <div @class([isset($page) && $page === "sales" ? "active" : ""])>
                     la vente d'un poduit
                 </div>
             </a>
@@ -139,11 +139,10 @@
             </small>
         </li>
     </ul>
-//<<<<<<< Inoush
 
     <ul>
         <li>
-            <a href="{{ route('categories.index') }}">
+            <a href="{{ route('home') }}">
                 <div @class([isset($page) && $page === "categories" ? "active" : ""])>
                     Statistiques de produits par catégorie
                 </div>

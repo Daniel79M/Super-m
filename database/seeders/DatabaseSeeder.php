@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Invoice;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +23,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'Caissier@example.com',
             'password' => Hash::make('caissier05')
         ]);
-        
 
     }
 }
