@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         return view('products.index', [
             'page' => 'products',
-            'products' => $data
+            'products' => $data,
         ]);
     }
 
@@ -69,8 +69,6 @@ class ProductController extends Controller
             "quantity" => $request->quantity,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
-        Inoush
-            "short_description" => $request->short_description,
         ]; 
         DB::beginTransaction();
 

@@ -2,44 +2,44 @@
 
 namespace App\Repositories;
 
-use App\Charts\ProductChart;
-use App\Interfaces\ProductInterface;
-use App\Models\Category;
+use App\Charts\SaleChart;
+use App\Models\sale;
+use App\Interfaces\SaleInterface;
 use App\Models\Product;
 
-class ProductRepository implements ProductInterface
+class SaleRepository implements SaleInterface
 {
     public function index()
     {
-        return Product::all();
+        return sale::all();
     }
 
     public function show($id)
     {
-        return Product::findOrFail($id);
+        return Sale::findOrFail($id);
     }
 
     public function store(array $data)
     {
-        return Product::create($data);
+        return Sale::create($data);
     }
 
     public function update(array $data, $id)
     {
-        return Product::findOrFail($id)->update($data);
+        return Sale::findOrFail($id)->update($data);
     }
 
     public function delete($id)
     {
-        return Product::destroy($id);
+        return Sale::destroy($id);
     }
 
-    public function chartByCategory()
+    public function chartByProduct()
     {
 
-        $data = Product::select('category_id')
+        $data = Sale::select('product_id')
             ->selectRaw('COUNT(*) as count')
-            ->groupBy('category_id')
+            ->groupBy('product_id')
             ->get();
 
         $json_data = json_decode($data, true);
@@ -52,10 +52,10 @@ class ProductRepository implements ProductInterface
         foreach ($json_data as $item) {
             $i++;
             $count[] = $item['count'];
-            $names[] = Category::find($item['category_id'])->name;
+            $names[] = Product::find($item['category_id'])->name;
         }
 
-        $chart = new ProductChart;
+        $chart = new SaleChart;
         $chart->labels($names);
         $chart->dataset("Ordinateurs", "pie", $count)->options([
             'backgroundColor' => ['#046e24', "#dd4c09", "#0b7ad4", "#b20bd4", "#d1163e", "#178897", "#587512"],
@@ -63,4 +63,7 @@ class ProductRepository implements ProductInterface
 
         return $chart;
     }
+
 }
+
+?>

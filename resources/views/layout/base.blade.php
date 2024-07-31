@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/datatable/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/summernote/summernote.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ URL::asset('assets/index.js') }}"> --}}
     <title>Super-m</title>
 </head>
 
@@ -23,6 +24,8 @@
             $('#datatable').DataTable();
         });
     </script>
+    <script src="{{ URL::asset('assets/index.js') }}"></script>
+
 
     @yield('js')
 </body>

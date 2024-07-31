@@ -54,11 +54,11 @@
                 <table width="100%">
                     <tr>
                         <td>
-                            <span class="h1">{{ 0 }}</span>
+                            <span class="h1">{{ $sales }}</span>
                             <small>Ventes</small>
                         </td>
                         <td class="text-right">
-                            <a href="#!" class="button error">
+                            <a href="{{ route('sales.index') }}" class="button error">
                                 <i class="fas fa-arrow-right-long"></i>
                             </a>
                         </td>

@@ -245,12 +245,24 @@ select:focus {
     transition-duration: 500ms;
 }
 
-textarea {
+.textarea {
     font-family: roboto-regular;
 }
 
 .text-center {
     text-align: center;
+}
+
+.text-center1{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+.dateInput{
+    width: 50%;
+    
 }
 
 .text-muted {

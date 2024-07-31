@@ -50,7 +50,7 @@
                                     {{ $product->name }}
                                 </td>
                                 <td>
-                                    {{-- {{ number_format($product->price, 0, " ") }} F CFA --}}
+                                    {{ number_format($product->price, 0, " ") }} F CFA
                                 </td>
                                 <td>
                                     {{ $product->quantity }}
