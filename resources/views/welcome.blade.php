@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="d-grid-6">
+        <div class="d-grid-4">
             <div>
                 {!! $product_chart_by_category->container() !!}
             </div>

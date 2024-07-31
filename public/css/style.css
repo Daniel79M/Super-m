@@ -278,6 +278,35 @@ textarea {
     padding: 20px;
 }
 
+//<<<<<<< Inoush
+.container{
+    background-color: gainsboro;
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    margin-left: 22%;
+    margin-top: 8%;
+
+}
+
+.sous-container{
+    display: flex;
+}
+
+.separator{
+    background-color: white;
+    height: 50px;
+    width: 1px;
+}
+
+.text-position{
+    text-align: center;
+    font-size: 10px;
+}
+
+.color{
+    color: var(--primary-color);
+//=======
 
 .form-group{
     align-items: center;
@@ -307,6 +336,7 @@ textarea {
     padding: 50px;
     background-color: whitesmoke;
     border-radius: 15px;
+//>>>>>>> master
 }
 
 @font-face {

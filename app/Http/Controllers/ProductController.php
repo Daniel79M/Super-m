@@ -63,14 +63,12 @@ class ProductController extends Controller
 
         $data = [
             "name" => $request->name,
-            "image" => $imageName,
+            "image" => $request->imageName,
             "category_id" => $request->category_id,
             "price" => $request->price,
             "quantity" => $request->quantity,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
-        Inoush
-            "short_description" => $request->short_description,
         ]; 
         DB::beginTransaction();
 

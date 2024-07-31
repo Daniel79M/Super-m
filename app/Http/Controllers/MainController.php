@@ -31,7 +31,7 @@ class MainController extends Controller
         return view('welcome', [
             "categories" => $categories,
             "products" => $products,
-            "product_chart_by_category" => $this->productInterface->chartByCategory()
+            "product_chart_by_category" => $this->productInterface->chartByCategory(),
         ]);
          
     

@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\StatisticalController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
@@ -18,7 +20,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-
+//claude
 //route principale, pour les categories et les produits
 Route::middleware('auth')->group(function () {
 
@@ -37,8 +39,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profiles.update');
 });
+//====
 
-
+//Damaz
 // Route pour afficher le formulaire de réinitialisation du mot de passe
 Route::get('/password/reset', [PasswordResetController::class, 'showResetForm'])->name('password.request');
 
