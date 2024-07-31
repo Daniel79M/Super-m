@@ -72,16 +72,24 @@
         <li>
             <a href="{{ route('categories.index') }}">
                 <div @class([isset($page) && $page === "categories" ? "active" : ""])>
-                    Valider la vente d'un poduit
+                    la vente d'un poduit
                 </div>
             </a>
         </li>
         <li>
-            <a href="{{ route('categories.create') }}">
-                <div @class([isset($page) && $page === "categories.create" ? "active" : ""])>
-                    Liste des ventes
+        <li>
+            <a href="{{ route('categories.index') }}">
+                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                    Facture de vente
                 </div>
             </a>
+        </li>
+        <li>
+        <a href="{{ route('categories.index') }}">
+            <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                Détails de la vente et bilan
+            </div>
+        </a>
         </li>
     </ul>
 

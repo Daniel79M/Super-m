@@ -13,11 +13,6 @@
                     <td>
                         <h2>Factures</h2>
                     </td>
-                    <td class="text-right">
-                        <a href="{{ route('products.create') }}" class="button secondary">
-                            imprimer
-                        </a>
-                    </td>
                 </tr>
             </table><br />
 
@@ -28,16 +23,13 @@
             @endif
             
             <div class="border datatable-cover">
-                <table id="datatable" class="stripe">
+                <table id="myTable" class="dataTable stripe">
                     <thead>
                         <tr>
                             <th>Nom</th>
                             <th>Prix</th>
                             <th>Quantité</th>
                             <th>Total</th>
-                            <th width="100" class="text-center">
-                                Opérations
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,24 +47,20 @@
                                 <td>
                                     {{ $product->entire }}
                                 </td>
-                                <td class="text-center">
-                                    <a href="{{ route('products.edit', $product->id) }}" class="icon-button primary">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </a>
-                                    &nbsp;
-                                    <form class="d-inline" action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr(e) de vouloir supprimer le produit {{ $product->name }} ? Cette action sera irréversible !')">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button type="submit" class="icon-button error">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div><h3>TotalFinal :</h2></div>
             </div>
+            <div class="text-position">
+                <h3><span class="color">Super-Market</span> Vous Dit Merci Pour Votre Achat</h3>
+            </div>
+        </div>
+        <div>
+            <a href="{{ route('products.create') }}" class="button primary">
+                Imprimer
+            </a>
         </div>
     </div>
 @endsection
