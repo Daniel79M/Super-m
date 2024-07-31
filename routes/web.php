@@ -5,10 +5,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\StatisticalController;
->>>>>>> 462f19c3d3b81c36d8f96ddf15c40607acd5471b
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
@@ -59,6 +55,6 @@ Route::get('/sales', function (){
 });
 
 
-Route::resource('/categories', CategoryController::class);
-Route::resource('/products', ProductController::class);
+// Route::resource('/categories', CategoryController::class);
+// Route::resource('/products', ProductController::class);
 Route::resource( '/sales', SaleController::class);

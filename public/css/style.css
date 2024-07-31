@@ -215,6 +215,7 @@ select:focus {
     bottom: 0;
     width: var(--side-bar-width);
     padding: var(--side-bar-padding);
+    overflow-y: scroll;
 }
 
 .side-bar .brand-logo-text {
@@ -290,7 +291,7 @@ select:focus {
     padding: 20px;
 }
 
-//<<<<<<< Inoush
+/*  Inoush */
 .container{
     background-color: gainsboro;
     display: inline-block;
@@ -318,7 +319,8 @@ select:focus {
 
 .color{
     color: var(--primary-color);
-//=======
+}
+/* //======= */
 
 .form-group{
     align-items: center;
@@ -348,7 +350,6 @@ select:focus {
     padding: 50px;
     background-color: whitesmoke;
     border-radius: 15px;
-//>>>>>>> master
 }
 
 @font-face {
