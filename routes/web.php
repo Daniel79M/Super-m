@@ -5,28 +5,38 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordResetController;
 
 
 
-// Route::get('/', [MainController::class, 'home'])->middleware('auth')->name('home');
+// les routes d'autentification
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
-// Route::resource('/categories', CategoryController::class)->middleware('auth');
-// Route::resource('/products', ProductController::class)->middleware('auth');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+
+//route principale, pour les categories et les produits
 Route::middleware('auth')->group(function () {
+
     Route::get('/', [MainController::class, 'home'])->name('home');
+
     Route::resource('/categories', CategoryController::class);
+
     Route::resource('/products', ProductController::class);
 });
 
 
-Route::get('/login',[AuthController::class, 'showLoginForm'])->name('login');
+// les routes profiles
+Route::middleware('auth')->group(function () {
 
-Route::post('/login',[AuthController::class, 'login'])->name('auth.login');
+    Route::get('/profiles/{id}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 
-Route::delete('/logout',[AuthController::class, 'logout'])->name('auth.logout');
-
+    Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profiles.update');
+});
 
 
 // Route pour afficher le formulaire de réinitialisation du mot de passe

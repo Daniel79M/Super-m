@@ -2,7 +2,39 @@
     <a href="" class="brand-logo-text">
         Super-market
     </a>
-    <br /><br /><br />
+    <br /><br />
+    
+
+    <ul>
+        <li>
+            <small>
+                <i class="fas fa-user"></i>
+                &nbsp;
+                <b id="user-name" style="cursor: pointer;">{{ Auth::user()->name }}</b>
+            </small>
+        </li>
+    </ul>
+    
+    <ul id="edit-profile-button" class="hidden">
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+        <li>
+            <a href="{{ route('profiles.edit', ['id' => Auth::user()->id]) }}">
+                <div class="button primary">
+                    Editer le profil
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <script>
+        document.getElementById('user-name').addEventListener('click', function() {
+            document.getElementById('edit-profile-button').classList.toggle('hidden');
+        });
+    </script>
 
     <ul>
         <li>
@@ -17,14 +49,14 @@
     <ul>
         <li>
             <a href="{{ route('products.index') }}">
-                <div @class([isset($page) && $page === "products" ? "active" : ""])>
+                <div @class([isset($page) && $page === 'products' ? 'active' : ''])>
                     Liste des produits
                 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('products.create') }}">
-                <div @class([isset($page) && $page === "products.create" ? "active" : ""])>
+                <div @class([isset($page) && $page === 'products.create' ? 'active' : ''])>
                     Créer un nouveau produit
                 </div>
             </a>
@@ -44,14 +76,16 @@
     <ul>
         <li>
             <a href="{{ route('categories.index') }}">
-                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                <div @class([isset($page) && $page === 'categories' ? 'active' : ''])>
                     Liste des catégories
                 </div>
             </a>
         </li>
         <li>
             <a href="{{ route('categories.create') }}">
-                <div @class([isset($page) && $page === "categories.create" ? "active" : ""])>
+                <div @class([
+                    isset($page) && $page === 'categories.create' ? 'active' : '',
+                ])>
                     Créer une nouvelle catégorie
                 </div>
             </a>

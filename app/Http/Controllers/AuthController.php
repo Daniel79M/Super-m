@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
+
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
-{
     public function showLoginForm()
     {
         return view('auth.login');
     }
-
 
 
     public function login(LoginRequest $request)
@@ -30,6 +29,7 @@ class AuthController extends Controller
         ])->withInput($request->only('email'));
     }
 
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -38,6 +38,7 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+
 
 }
 

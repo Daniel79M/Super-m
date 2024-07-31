@@ -1,3 +1,4 @@
+
 {{-- @extends("base") --}}
 @extends('layout.base')
 
@@ -51,4 +52,5 @@
            
         </div>
     </body>
+
 @endsection
