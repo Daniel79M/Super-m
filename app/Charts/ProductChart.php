@@ -15,4 +15,7 @@ class ProductChart extends Chart
     {
         parent::__construct();
     }
+
+    //Définit une classe ProductChart qui hérite de Chart de la bibliothèque ConsoleTVs\Charts.
+//La méthode __construct appelle le constructeur parent pour initialiser le graphique.
 }
