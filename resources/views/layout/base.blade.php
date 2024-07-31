@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/datatable/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/summernote/summernote.min.css') }}">
+<<<<<<< HEAD
     {{-- <link rel="stylesheet" href="{{ URL::asset('assets/index.js') }}"> --}}
+=======
+    <link rel="stylesheet" href="{{ URL::asset('assets/bootstrap/css/bootstrap.min.css') }}">
+>>>>>>> 462f19c3d3b81c36d8f96ddf15c40607acd5471b
     <title>Super-m</title>
 </head>
 

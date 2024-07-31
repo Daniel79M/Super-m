@@ -106,11 +106,62 @@
 
     <ul>
         <li>
+            <a href="{{ route('categories.index') }}">
+                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                    la vente d'un poduit
+                </div>
+            </a>
+        </li>
+        <li>
+        <li>
+            <a href="{{ route('categories.index') }}">
+                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                    Facture de vente
+                </div>
+            </a>
+        </li>
+        <li>
+        <a href="{{ route('categories.index') }}">
+            <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                Détails de la vente et bilan
+            </div>
+        </a>
+        </li>
+    </ul>
+
+
+    <ul>
+        <li>
             <small>
-                <i class="fa fa-diagram"></i>
+                <i class="fa fa-chart-line"></i>
                 &nbsp;
                 <b>Gestion de statistiques</b>
             </small>
+        </li>
+    </ul>
+//<<<<<<< Inoush
+
+    <ul>
+        <li>
+            <a href="{{ route('categories.index') }}">
+                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+                    Statistiques de produits par catégorie
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('categories.create') }}">
+                <div @class([isset($page) && $page === "categories.create" ? "active" : ""])>
+                    Statistiques de vente de chaque mois/an
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('categories.create') }}">
+                <div @class([isset($page) && $page === "categories.create" ? "active" : ""])>
+                    Statistiques des chiffres d'affaire global de chaque mois/an
+                </div>
+            </a>
         </li>
     </ul>
 </div>
