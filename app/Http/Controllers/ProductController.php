@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Classes\ResponseClass;
 use App\Http\Requests\Products\CreateProductRequest;
+use App\Http\Requests\Products\UpdateProductRequest;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\ProductInterface;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,9 +69,7 @@ class ProductController extends Controller
             "quantity" => $request->quantity,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
-            "short_description" => $request->short_description,
-        ];  
-        
+        ]; 
         DB::beginTransaction();
 
         try {
@@ -95,22 +95,50 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = $this->productInterface->show($id);
+        $categories = Category::all();
+        return view('products.edit', [
+            'page' => 'products',
+            'product' => $product,
+            "categories" => $categories
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    
+    public function update(UpdateProductRequest $request, string $id)
     {
-        //
+        $data = [
+            "name" => $request->name,
+            "category_id" => $request->category_id,
+            "price" => $request->price,
+            "quantity" => $request->quantity,
+            "short_description" => $request->short_description,
+            "long_description" => $request->long_description,
+        ];
+
+        DB::beginTransaction();
+
+        try {
+            $this->productInterface->update($data, $id);
+            DB::commit();
+
+            return ResponseClass::success();
+        } catch (\Throwable $th) {
+            return ResponseClass::rollback();
+        }
+
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $this->productInterface->delete($id);
+        return ResponseClass::success();
     }
 }
