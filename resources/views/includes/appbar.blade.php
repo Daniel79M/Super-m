@@ -8,9 +8,17 @@
             </td>
             <td class="text-right">
                 <a href="">
-                    <b>Paramètres</b>
+                    <form action="{{ route('auth.logout')}}" method="post">
+                        @method("delete")
+                        @csrf
+                        <button class="btn-deconnect">Se deconnecter</button>
+
+                    </form>
+                    {{-- <a href="{{ route('auth.login')}}">Se deconnecter</a> --}}
                 </a>
             </td>
         </tr>
+
+        
     </table>
 </header>
