@@ -1,41 +1,56 @@
+
+{{-- @extends("base") --}}
 @extends('layout.base')
 
 @section('content')
-    <div>
-        @if ($errors->any())
-            <ul class="alert alert-danger">
-                {!! implode('', $errors->all('<li>:message</li>')) !!}
-            </ul>
-        @endif
 
-        <form action="{{ route('auth.login') }}" class="category-form" method="POST">
-            @csrf
+    <body class="dam">
+        {{-- <h1>Se connecter</h1> --}}
+
+        <div>
             <div>
-                <h1 class="text-center">Login</h1>
+                <form action="{{ route('auth.login') }}" method="post" class="category-form dan" >
 
-                {{-- <div class="form-group">
-                            <label for="name" class="form-label">Name:</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div><br /> --}}
+                    @if ($errors->any())
+                        <ul class="alert alert-danger">
+                            {!! implode('', $errors->all('<li>:message</li>')) !!}
+                        </ul>
+                    @endif
 
-                <div>
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="enter your email here..." required>
-                </div><br />
-                <div>
-                    <label for="password">password</label>
-                    <input type="password" name="password" id="password" placeholder="enter your password here..."
-                        required>
-                </div><br />
+                    @csrf
+                    <div>
+                        <h1 class="text-center">To log in</h1>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="title" name="name">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
+                    </div>
 
-                <div>
-                    <a href="">forget Password ?</a>
-                </div><br />
 
-                <div>
-                    <button type="submit" class="button w-100 primary">Sign in</button>
-                </div><br />
+                    <div >
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ old('email') }}">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        @error('password')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                    <a href="{{ route('password.request')}}">Mot de passe oublier?</a><br><br>
+
+                    <button class="button w-100 primary">To log in</button>
+                </form>
             </div>
-        </form>
-    </div>
+           
+        </div>
+    </body>
+
 @endsection

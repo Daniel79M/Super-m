@@ -2,32 +2,31 @@
 
 namespace App\Http\Controllers;
 
+
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
-{   
-
-
-   
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            $request->session()->regenerate();
+            return redirect()->intended(route('home'));
         }
 
-        return redirect()->back()->withErrors([
-            'email' => 'Les informations de connexion sont incorrectes.',
-        ]);
+        return redirect()->route('auth.login')->withErrors([
+            'email' => 'Les informations de connexion sont incorrectes.'
+        ])->withInput($request->only('email'));
     }
 
 
@@ -39,4 +38,7 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+
+
 }
+

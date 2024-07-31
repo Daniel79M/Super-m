@@ -5,7 +5,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PasswordResetController;
+
 
 
 // les routes d'autentification
@@ -34,3 +37,13 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profiles.update');
 });
+
+
+// Route pour afficher le formulaire de réinitialisation du mot de passe
+Route::get('/password/reset', [PasswordResetController::class, 'showResetForm'])->name('password.request');
+
+// Route pour traiter la demande de réinitialisation du mot de passe
+Route::post('/password/reset', [PasswordResetController::class, 'reset'])->name('password.update');
+
+
+
