@@ -171,6 +171,7 @@ body {
     font-family: roboto-regular;
 }
 
+
 .icon-button {
     background-color: #CCC;
     border: none;
@@ -196,7 +197,7 @@ select {
 input:hover,
 textarea:hover,
 select:hover {
-    background-color: #FFF;
+    background-color: #fff;
 }
 
 input:focus,
@@ -287,6 +288,37 @@ select:focus {
 
 .wrap-content>div {
     padding: 20px;
+}
+
+
+.form-group{
+    align-items: center;
+    text-align: center;
+    width: 400px;
+}
+
+.btn-deconnect{
+    width: 20%;
+    background:#0d6dad ;
+    color: #ffffff;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dam{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 50px !important;
+    background-color: #0d6dad;
+  
+}
+
+.dan{
+    padding: 50px;
+    background-color: whitesmoke;
+    border-radius: 15px;
 }
 
 @font-face {
