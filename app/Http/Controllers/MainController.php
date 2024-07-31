@@ -25,7 +25,6 @@ class MainController extends Controller
             "categories" => $categories,
             "products" => $products,
             "product_chart_by_category" => $this->productInterface->chartByCategory(),
-            "product_chart_by_sale" => $this->productInterface->chartBySale()
         ]);
     }
 }

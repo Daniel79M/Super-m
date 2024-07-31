@@ -85,9 +85,6 @@
             <div>
                 {!! $product_chart_by_category->container() !!}
             </div>
-            <div>
-                {!! $product_chart_by_sale->container() !!}
-            </div>
         </div>
 
     </div>
@@ -96,5 +93,4 @@
 @section('js')
     <script src="{{ URL::asset('assets/chart/chart.min.js') }}" charset="utf-8"></script>
     {!! $product_chart_by_category->script() !!}
-    {!! $product_chart_by_sale->script() !!}
 @endsection

@@ -126,12 +126,5 @@
                 </div>
             </a>
         </li>
-        <li>
-            <a href="{{ route('categories.create') }}">
-                <div @class([isset($page) && $page === "categories.create" ? "active" : ""])>
-                    Statistiques des produits                
-                </div>
-            </a>
-        </li>
     </ul>
 </div>
