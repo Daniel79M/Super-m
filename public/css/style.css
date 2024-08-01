@@ -47,6 +47,9 @@ a:hover {
     position: fixed;
     right: 0;
     left: calc(var(--side-bar-width) + (var(--side-bar-padding) * 2));
+    /* background-color: #0c75bb; */
+    height: 50px;
+    /* z-index: 2; */
 }
 
 .border {
@@ -146,6 +149,12 @@ a:hover {
 .d-grid-4 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+}
+
+.d-grid-chart{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 20px;
 }
 

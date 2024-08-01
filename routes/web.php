@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StatisticalController;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordResetController;
@@ -28,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/categories', CategoryController::class);
 
     Route::resource('/products', ProductController::class);
+
+    Route::resource( '/sales', SaleController::class);
 });
 
 
@@ -50,11 +54,17 @@ Route::post('/password/reset', [PasswordResetController::class, 'reset'])->name(
 
 // route des ventes
 
-Route::get('/sales', function (){
-    return view('sales.index');
-});
+// Route::get('/sales', function (){
+//     return view('sales.index');
+// });
 
 
 // Route::resource('/categories', CategoryController::class);
 // Route::resource('/products', ProductController::class);
-Route::resource( '/sales', SaleController::class);
+
+// statistique Damaz
+Route::get('/DamSalesChart/Salechart', [StatisticalController::class, 'monthlySalesChart'])->name('sales.statistics');
+Route::get('/invoices/index', [InvoiceController::class, 'index']);
+
+
+// Route::get('/sales/statistics', [StatisticalController::class, 'monthlySalesChart'])->name('sales.statistics');

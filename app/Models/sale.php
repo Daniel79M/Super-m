@@ -14,7 +14,10 @@ class sale extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'entire',
-    ];
+    protected $fillable = ['date'];
+
+    public function saleItems()
+    {
+        return $this->hasMany(SaleItem::class);
+    }
 }

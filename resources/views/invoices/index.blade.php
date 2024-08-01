@@ -1,4 +1,10 @@
-@include('includes.appbar')
+@extends('layout.base')
+
+@section('content')
+@include('includes.sidebar')
+
+    <div class="wrap-content">
+        @include('includes.appbar')
 
         <br /><br /><br />
         <div class="container">
@@ -20,29 +26,29 @@
                 <table id="myTable" class="dataTable stripe">
                     <thead>
                         <tr>
-                            <th>Nom</th>
+                            <th>Date</th>
+                            <th>Produits</th>
                             <th>Prix</th>
-                            <th>Quantité</th>
                             <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+                        {{-- @foreach ($products as $product) --}}
                             <tr>
                                 <td>
-                                    {{ $product->name }}
+                                    
                                 </td>
                                 <td>
-                                    {{ number_format($product->price, 0, " ") }} F CFA
+                                    {{-- {{ $product->name }} --}}
                                 </td>
                                 <td>
-                                    {{ $product->quantity }}
+                                    {{-- {{ number_format($product->price, 0, " ") }} F CFA --}}
                                 </td>
                                 <td>
-                                    {{ $product->entire }}
+                                    {{-- {{ $product->quantity }} --}}
                                 </td>
                             </tr>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
                 <div><h3>TotalFinal :</h2></div>
@@ -52,7 +58,7 @@
             </div>
         </div>
         <div>
-            <a href="{{ route('products.create') }}" class="button primary">
+            <a href="{{}}" class="button primary">
                 Imprimer
             </a>
         </div>

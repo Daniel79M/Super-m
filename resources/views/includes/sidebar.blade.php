@@ -121,7 +121,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('sales.index') }}">
+            <a href="">
                 <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
                     Facture de vente
                 </div>

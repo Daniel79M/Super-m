@@ -20,11 +20,11 @@
                 </ul>
             @endif
 
-            @if ($message = Session::get("error"))
+            {{-- @if ($message = Session::get("error"))
                 <ul class="alert alert-danger">
                     <li>{{ $message }}</li>
                 </ul>
-            @endif
+            @endif --}}
 
             @if ($message = Session::get("success"))
                 <ul class="alert alert-success">
