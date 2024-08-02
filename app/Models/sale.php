@@ -15,14 +15,10 @@ class sale extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-<<<<<<< Updated upstream
         'name',
         'price',
         'quantity',
         'total',
         'fulltotal',
-=======
-        'entire',
->>>>>>> Stashed changes
     ];
 }
