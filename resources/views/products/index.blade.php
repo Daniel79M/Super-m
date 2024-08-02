@@ -44,7 +44,7 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>
-                                    <img src="/storage/images/<?= $product->image ?>" width="40" alt="img">
+                                    <img src="{{ URL::asset($product->image == '' ? 'db/images.png' : URL::asset('db/products/' . $product->image))  }}" width="40" alt="img">
                                 </td>
                                 <td>
                                     {{ $product->name }}

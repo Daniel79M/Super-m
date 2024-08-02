@@ -53,17 +53,16 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $imageName = time().'.'.$request->image->extension();
-
-        $request->image->storeAs('public/images', $imageName);
+        if ($request->hasFile("image")) {
+            move_uploaded_file($_FILES['image']['tmp_name'], 'db/products/' . $_FILES['image']['name']);
+            $imageName = $_FILES['image']['name'];
+        } else {
+            $imageName = '';
+        }
 
         $data = [
             "name" => $request->name,
-            "image" => $request->imageName,
+            "image" =>$imageName,
             "category_id" => $request->category_id,
             "price" => $request->price,
             "quantity" => $request->quantity,

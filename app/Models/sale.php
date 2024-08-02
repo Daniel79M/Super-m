@@ -14,11 +14,14 @@ class sale extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'price',
-        'quantity',
-        'total',
-        'fulltotal',
-    ];
+
+    protected $fillable = ['date'];
+
+    public function saleItems()
+    {
+        return $this->hasMany(SaleItem::class);
+    }
 }
+
+
+

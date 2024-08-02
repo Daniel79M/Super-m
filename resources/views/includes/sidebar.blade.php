@@ -106,23 +106,31 @@
 
     <ul>
         <li>
-            <a href="{{ route('sales.create') }}">
-                <div @class([isset($page) && $page === "sales" ? "active" : ""])>
-                    la vente d'un poduit
+
+            <a href="{{ route('sales.index') }}">
+                <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
+                    liste des ventes
                 </div>
             </a>
         </li>
         <li>
         <li>
-            <a href="{{ route('categories.index') }}">
-                <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+            <a href="{{ route('sales.create') }}">
+                <div @class([isset($page) && $page === "sales.create" ? "active" : ""])>
+                    Effectuer une vente
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
                     Facture de vente
                 </div>
             </a>
         </li>
         <li>
-        <a href="{{ route('categories.index') }}">
-            <div @class([isset($page) && $page === "categories" ? "active" : ""])>
+        <a href="{{ route('sales.index') }}">
+            <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
                 Détails de la vente et bilan
             </div>
         </a>
@@ -139,6 +147,9 @@
             </small>
         </li>
     </ul>
+
+{{-- inoush --}}
+
 
     <ul>
         <li>

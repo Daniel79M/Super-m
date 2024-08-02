@@ -31,6 +31,8 @@ class MainController extends Controller
         $products = count($this->productInterface->index());
         $sales = count($this->saleInterface->index());
 
+        $sales_total_revenue = $this->saleInterface->salesAmounts();
+        // $monthly_Sales_Chart = $this->saleInterface->monthlySalesChart();
         // ModelsUser::create([
         //     'name' => 'Caissier',
         //     'email' => 'caissier@gmail.com',
@@ -42,7 +44,11 @@ class MainController extends Controller
             "products" => $products,
             "sales" => $sales,
             "product_chart_by_category" => $this->productInterface->chartByCategory(),
-            "sale_chart_by_product" => $this->saleInterface->chartByProduct()
+            "sale_chart_by_month" => $this->saleInterface->chartSalesByMonth(),
+            "chart_revenue_by_month" => $this->saleInterface->chartRevenueByMonth(),
+            "sales_total_revenue" =>  $sales_total_revenue,
+            // " monthly_Sales_Chart" => $monthly_Sales_Chart->monthly_Sales_Chart(),/
+            
         ]);
 
     

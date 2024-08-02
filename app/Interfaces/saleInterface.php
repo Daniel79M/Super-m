@@ -9,5 +9,5 @@ interface SaleInterface
     public function store(array $data);
     public function update(array $data, $id);
     public function delete($id);
-    public function chartByProduct();
+    // public function chartByProduct();
 }
