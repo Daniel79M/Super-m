@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\InvoiceController;
+
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
@@ -67,4 +69,6 @@ Route::get('/DamSalesChart/Salechart', [StatisticalController::class, 'monthlySa
 Route::get('/invoices/index', [InvoiceController::class, 'index']);
 
 
+
 // Route::get('/sales/statistics', [StatisticalController::class, 'monthlySalesChart'])->name('sales.statistics');
+

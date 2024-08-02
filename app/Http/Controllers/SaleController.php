@@ -69,7 +69,9 @@ class SaleController extends Controller
 
         // Préparer les données des produits
         foreach ($selectedProducts as $productId) {
+
             SaleItem::create([
+
                 'sale_id' => $sale->id,
                 'product_id' => $productId,
                 'quantity' => $quantities[$productId] ?? 0,

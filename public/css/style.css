@@ -300,7 +300,9 @@ select:focus {
     padding: 20px;
 }
 
+
 /*  Inoush */
+
 .container{
     background-color: gainsboro;
     display: inline-block;
@@ -329,7 +331,6 @@ select:focus {
 .color{
     color: var(--primary-color);
 }
-/* //======= */
 
 .form-group{
     align-items: center;
@@ -352,7 +353,6 @@ select:focus {
     display: flex;
     margin: 50px !important;
     background-color: #0d6dad;
-  
 }
 
 .dan{

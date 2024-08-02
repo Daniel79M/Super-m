@@ -14,6 +14,7 @@ class sale extends Model
      *
      * @var array<int, string>
      */
+
     protected $fillable = ['date'];
 
     public function saleItems()
@@ -21,3 +22,6 @@ class sale extends Model
         return $this->hasMany(SaleItem::class);
     }
 }
+
+}
+

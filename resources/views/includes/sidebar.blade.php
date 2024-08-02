@@ -106,6 +106,7 @@
 
     <ul>
         <li>
+
             <a href="{{ route('sales.index') }}">
                 <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
                     liste des ventes
@@ -146,11 +147,13 @@
             </small>
         </li>
     </ul>
+
 {{-- inoush --}}
+
 
     <ul>
         <li>
-            <a href="{{ route('categories.index') }}">
+            <a href="{{ route('home') }}">
                 <div @class([isset($page) && $page === "categories" ? "active" : ""])>
                     Statistiques de produits par catégorie
                 </div>
