@@ -69,7 +69,7 @@
                 <table width="100%">
                     <tr>
                         <td>
-                            <span class="h1">{{ 0 }}</span>
+                            <span class="h1">{{ number_format($sales_total_revenue[0]->total_revenue) }}</span>
                             <small>F CFA</small>
                         </td>
                         <td class="text-right">
@@ -82,10 +82,19 @@
             </div>
         </div>
 
-        <div class="d-grid-4">
+        <div class="d-grid-chart">
             <div>
                 {!! $product_chart_by_category->container() !!}
             </div>
+            <div>
+                {!! $sale_chart_by_month->container() !!}
+            </div>
+            <div>
+                {!! $chart_revenue_by_month->container() !!}
+            </div>
+            {{-- <div>
+                {!! $monthly_Sales_Chart->container() !!}
+            </div> --}}
         </div>
 
     </div>
@@ -94,4 +103,7 @@
 @section('js')
     <script src="{{ URL::asset('assets/chart/chart.min.js') }}" charset="utf-8"></script>
     {!! $product_chart_by_category->script() !!}
+    {!! $sale_chart_by_month->script() !!}
+    {!! $chart_revenue_by_month->script() !!}
+    {{-- {!! $monthly_Sales_Chart->script() !!} --}}
 @endsection

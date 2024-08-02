@@ -9,24 +9,29 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->float('price');
-            $table->integer('quantity')->default(0);
             $table->date('date');
+            $table->timestamps();
+        });
+
+        Schema::create('sale_items', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('sale_id');
             $table->unsignedBigInteger('product_id');
-            $table->foreign("product_id")->references("id")->on("product");
+            $table->integer('quantity');
+            $table->float('price')->default(0.0);
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
+        Schema::dropIfExists('sale_items');
         Schema::dropIfExists('sales');
     }
 };
