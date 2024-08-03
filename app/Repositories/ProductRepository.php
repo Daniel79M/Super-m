@@ -37,7 +37,7 @@ class ProductRepository implements ProductInterface
     public function chartByCategory()
     {
 
-    
+
         $data = Product::select('category_id')  // Sélectionne l'ID de la catégorie des produits.
             ->selectRaw('COUNT(*) as count')  // Compte le nombre de produits par catégorie.
             ->groupBy('category_id')  //  Regroupe les produits par catégorie.
@@ -64,8 +64,67 @@ class ProductRepository implements ProductInterface
         $chart->labels($names); //Définit les labels en haut du graphique avec les noms des catégories
 
         //Ajoute un jeu de données au graphique de type "pie" (camembert) avec les comptes de produits
-        $chart->dataset("Ordinateurs", "pie", $count)->options([
+        $chart->dataset("Top", "pie", $count)->options([
             'backgroundColor' => ['#046e24', "#dd4c09", "#0b7ad4", "#b20bd4", "#d1163e", "#178897", "#587512"],
+        ]);
+
+        return $chart;
+    }
+
+    public function chartTopProducts()
+    {
+        $data = Product::select('name')
+            ->selectRaw('SUM(sale_items.quantity) as total_sales')
+            ->join('sale_items', 'products.id', '=', 'sale_items.product_id')
+            ->groupBy('products.id')
+            ->orderByDesc('total_sales')
+            ->limit(10)
+            ->get();
+
+        $json_data = json_decode($data, true);
+
+        $productNames = [];
+        $salesCount = [];
+
+        foreach ($json_data as $item) {
+            $productNames[] = $item['name'];
+            $salesCount[] = $item['total_sales'];
+        }
+
+        $chart = new ProductChart;
+        $chart->labels($productNames);
+        $chart->dataset("Top Produits", "bar", $salesCount)->options([
+            'backgroundColor' => ["#d1163e", "#b20bd4", "#0b7ad4", "#178897"]
+        ]);
+
+        return $chart;
+    }
+
+    public function chartTopCategories()
+    {
+        $data = Category::select('categories.name')
+            ->selectRaw('SUM(sale_items.quantity) as total_sales')
+            ->join('products', 'categories.id', '=', 'products.category_id')
+            ->join('sale_items', 'products.id', '=', 'sale_items.product_id')
+            ->groupBy('categories.id')
+            ->orderByDesc('total_sales')
+            ->limit(10)
+            ->get();
+
+        $json_data = json_decode($data, true);
+
+        $categoryNames = [];
+        $salesCount = [];
+
+        foreach ($json_data as $item) {
+            $categoryNames[] = $item['name'];
+            $salesCount[] = $item['total_sales'];
+        }
+
+        $chart = new ProductChart;
+        $chart->labels($categoryNames);
+        $chart->dataset("Top Catégories", "bar", $salesCount)->options([
+            'backgroundColor' => ["#0b7ad4", "#b20bd4", "#d1163e", "#178897", "#587512"],
         ]);
 
         return $chart;

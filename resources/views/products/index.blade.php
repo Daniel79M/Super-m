@@ -8,6 +8,7 @@
 
         <br /><br /><br />
         <div>
+            <br /><br /><br />
             <table width="100%">
                 <tr>
                     <td>
@@ -44,7 +45,7 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>
-                                    <img src="{{ URL::asset($product->image == '' ? 'db/images.png' : URL::asset('db/products/' . $product->image))  }}" width="40" alt="img">
+                                    <img src="{{ URL::asset($product->image == '' ? 'db/image_default.jpg' : URL::asset('db/products/' . $product->image))  }}" width="40" alt="img">
                                 </td>
                                 <td>
                                     {{ $product->name }}

@@ -4,7 +4,6 @@
     </a>
     <br /><br />
     
-
     <ul>
         <li>
             <small>
@@ -91,9 +90,6 @@
             </a>
         </li>
     </ul>
-
-
-
     <ul>
         <li>
             <small>
@@ -120,24 +116,25 @@
                 </div>
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a href="">
                 <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
-                    Facture de vente
+                    Détails ventes
                 </div>
             </a>
-        </li>
+        </li> --}}
         <li>
-        <a href="{{ route('sales.index') }}">
-            <div @class([isset($page) && $page === "sales.index" ? "active" : ""])>
-                Détails de la vente et bilan
-            </div>
-        </a>
+            <a href="{{ route('reports.index') }}">
+                <div @class([isset($page) && $page === "reports.index" ? "active" : ""])>
+                    Bilan de la Vente
+                </div>
+            </a>
+            
         </li>
     </ul>
 
 
-    <ul>
+    {{-- <ul>
         <li>
             <small>
                 <i class="fa fa-chart-line"></i>
@@ -146,7 +143,7 @@
             </small>
         </li>
     </ul>
-{{-- inoush --}}
+
 
     <ul>
         <li>
@@ -170,6 +167,6 @@
                 </div>
             </a>
         </li>
-    </ul>
+    </ul> --}}
 </div>
 

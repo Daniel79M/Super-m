@@ -10,6 +10,10 @@ use App\Interfaces\ProductInterface;
 use App\Interfaces\SaleInterface;
 use App\Models\SaleItem;
 
+
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 class SaleController extends Controller
 {
     private ProductInterface $productInterface;
@@ -51,20 +55,37 @@ class SaleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-
     public function store(Request $request)
     {
-        $selectedProducts = $request->input('products', []);
-        $quantities = $request->input('quantities', []);
-        $saleDate = $request->input('sale_date');
 
-        if (empty($selectedProducts)) {
-            return redirect()->back()->with('error', 'Aucun produit sélectionné.');
-        }
+        // return $request;
 
-        // Créer une nouvelle vente
+        $validatedData = $request->validate([
+            'sale_date' => 'required|date', 
+            'products' => 'required|array', // Valide que 'products' est un tableau
+            'products.*' => 'integer|exists:products,id', 
+            'quantities' => 'required|array', 
+            'quantities.*' => 'integer|min:1',
+        ]);
+
+        
+        $selectedProducts = $validatedData['products'];
+        $quantities = $validatedData['quantities'];
+        foreach ($selectedProducts as $productId) {
+            $product = Product::find($productId);
+            $quantityRequested = $quantities[$productId] ?? 0;
+    
+            if ($product->quantity < $quantityRequested) {
+                return redirect()->back()->withErrors([
+                    'quantities' => "La quantité disponible pour le produit {$product->name} est insuffisante."
+                ]);
+            }
+        };
+    
+
+        // Créer une nouvelle vente avec la date personnalisée
         $sale = Sale::create([
-            'date' => $saleDate,
+            'date' => $validatedData['sale_date'] ,
         ]);
 
         // Préparer les données des produits
@@ -74,12 +95,16 @@ class SaleController extends Controller
                 'product_id' => $productId,
                 'quantity' => $quantities[$productId] ?? 0,
                 'price' => Product::find($productId)->price,
+                'Sale_date' => $validatedData['sale_date'] // Utilisez la date de la vente créée
             ]);
+
+            // Mettre à jour la quantité de produit
+            $product->quantity -= $quantityRequested;
+            $product->save();
         }
 
         return redirect()->route('sales.index')->with('success', 'Vente enregistrée avec succès!');
     }
-
 
     /**
      * Display the specified resource.
@@ -88,6 +113,8 @@ class SaleController extends Controller
     {
         //
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -108,8 +135,28 @@ class SaleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(sale $sale)
+    public function destroy($id)
     {
-        //
+        // Trouver la vente à supprimer
+        $sale = Sale::find($id);
+
+        if (!$sale) {
+            return redirect()->route('sales.index')->with('error', 'Vente non trouvée.');
+        }
+
+        // Restaurer les quantités des produits associés
+        foreach ($sale->saleItems as $saleItem) {
+            $product = Product::find($saleItem->product_id);
+            $product->quantity += $saleItem->quantity;
+            $product->save();
+        }
+
+        // Supprimer les éléments de vente associés
+        $sale->saleItems()->delete();
+
+        // Supprimer la vente
+        $sale->delete();
+
+        return redirect()->route('sales.index')->with('success', 'Vente supprimée avec succès!');
     }
 }

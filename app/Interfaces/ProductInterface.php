@@ -10,4 +10,6 @@ interface ProductInterface
     public function update(array $data, $id);
     public function delete($id);
     public function chartByCategory();
+    public function chartTopProducts();
+    public function chartTopCategories();
 }

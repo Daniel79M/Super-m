@@ -16,7 +16,7 @@
 
         @include('includes.appbar')
 
-        <br /><br /><br />
+        <br /><br /><br /><br /><br /><br />
 
         <div class="d-grid-4">
             <div class="dashboard-card">
@@ -92,9 +92,14 @@
             <div>
                 {!! $chart_revenue_by_month->container() !!}
             </div>
-            {{-- <div>
-                {!! $monthly_Sales_Chart->container() !!}
-            </div> --}}
+
+            <div>
+                {!! $chart_by_top_products->container() !!}
+            </div>
+
+            <div>
+                {!! $chart_by_top_categories->container() !!}
+            </div>
         </div>
 
     </div>
@@ -105,5 +110,6 @@
     {!! $product_chart_by_category->script() !!}
     {!! $sale_chart_by_month->script() !!}
     {!! $chart_revenue_by_month->script() !!}
-    {{-- {!! $monthly_Sales_Chart->script() !!} --}}
+    {!! $chart_by_top_products->script() !!}
+    {!! $chart_by_top_categories->script() !!}
 @endsection

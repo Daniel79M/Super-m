@@ -4,6 +4,13 @@
 <body class="dam">
     <div>
         <form method="POST" class="category-form dan" action="{{ route('password.update') }}">
+
+            @if ($errors->any())
+                <ul class="alert alert-danger">
+                    {!! implode('', $errors->all('<li>:message</li>')) !!}
+                </ul> 
+            @endif
+
             <h1>Password change </h1>
             @csrf
             <div>

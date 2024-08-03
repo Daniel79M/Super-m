@@ -1,12 +1,13 @@
-{{-- @extends("base") --}}
 @extends('layout.base')
 
 @section('content')
 
     <body class="dam">
+
+
         <div>
             <div>
-                <form action="{{ route('auth.login') }}" method="post" class="category-form dan">
+                <form action="{{ route('auth.register') }}" method="post" class="category-form dan">
 
                     @if ($errors->any())
                         <ul class="alert alert-danger">
@@ -16,13 +17,19 @@
 
                     @csrf
                     <div>
-                        <h1 class="text-center">To log in</h1>
+                        <h1 class="text-center">Registration</h1>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="title" name="name">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
                     </div>
 
 
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ old('email') }}">
                         @error('email')
                             {{ $message }}
                         @enderror
@@ -35,13 +42,14 @@
                             {{ $message }}
                         @enderror
                     </div>
-                    <a href="{{ route('otp.emailForm') }}">Mot de passe oublié?</a><br><br>
 
-                    <button class="button w-100 primary">To log in</button>
+
+                    <button class="button w-100 primary">Register</button>
                     <br /><br />
+
                     <div>
                         <span>Déjà un compte ?</span>&nbsp;&nbsp;&nbsp;
-                        <a href="{{ route('register') }}">S'inscrire</a>
+                        <a href="{{ route('auth.login') }}">Se connecter</a>
                     </div><br />
                 </form>
             </div>

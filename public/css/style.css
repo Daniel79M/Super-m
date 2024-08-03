@@ -1,5 +1,5 @@
 :root {
-    --color-light: #EEE;
+    --color-light: #eee;
     --primary-color: #0d6dad;
     --primary-dark-color: #0c5d92;
     --success-color: #0f9631;
@@ -23,7 +23,7 @@ a:hover {
 }
 
 .alert {
-    background-color: #EEE;
+    background-color: #eee;
     padding: 10px;
     border-radius: var(--input-border-radius);
     line-height: 20px;
@@ -43,61 +43,73 @@ a:hover {
 }
 
 .app-bar {
+    background-color: var(--primary-color);
     padding: var(--side-bar-padding);
     position: fixed;
     right: 0;
     left: calc(var(--side-bar-width) + (var(--side-bar-padding) * 2));
-    /* background-color: #0c75bb; */
-    height: 50px;
-    /* z-index: 2; */
+    height: auto;
+    z-index: 2;
+}
+
+.title {
+    color: #ffffff;
 }
 
 .border {
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
 }
 
 .button {
     border: none;
-    background-color: #EEE;
+    background-color: #eee;
     padding: 12px;
     border-radius: var(--input-border-radius);
     cursor: pointer;
 }
 
-.button.primary, .icon-button.primary {
+.button.primary,
+.icon-button.primary {
     background-color: var(--primary-color);
-    color: #FFF;
+    color: #fff;
 }
 
-.button.primary:hover, .icon-button.primary:hover {
+.button.primary:hover,
+.icon-button.primary:hover {
     background-color: var(--primary-dark-color);
 }
 
-.button.primary:focus, .icon-button.primary:focus {
+.button.primary:focus,
+.icon-button.primary:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
 
-.button.success, .icon-button.success {
+.button.success,
+.icon-button.success {
     background-color: var(--success-color);
-    color: #FFF;
+    color: #fff;
 }
 
-.button.success:hover, .icon-button.success:hover {
+.button.success:hover,
+.icon-button.success:hover {
     background-color: var(--success-dark-color);
 }
 
-.button.success:focus, .icon-button.success:focus {
+.button.success:focus,
+.icon-button.success:focus {
     outline: 2px solid var(--success-color);
     outline-offset: 2px;
 }
 
-.button.warning, .icon-button.warning {
+.button.warning,
+.icon-button.warning {
     background-color: var(--warning-color);
-    color: #FFF;
+    color: #fff;
 }
 
-.button.warning:hover, .icon-button.warning:hover {
+.button.warning:hover,
+.icon-button.warning:hover {
     background-color: var(--warning-dark-color);
 }
 
@@ -106,16 +118,19 @@ a:hover {
     outline-offset: 2px;
 }
 
-.button.error, .icon-button.error {
+.button.error,
+.icon-button.error {
     background-color: var(--error-color);
-    color: #FFF;
+    color: #fff;
 }
 
-.button.error:hover, .icon-button.error:hover {
+.button.error:hover,
+.icon-button.error:hover {
     background-color: var(--error-dark-color);
 }
 
-.button.error:focus, .icon-button.error:focus {
+.button.error:focus,
+.icon-button.error:focus {
     outline: 2px solid var(--error-color);
     outline-offset: 2px;
 }
@@ -126,7 +141,7 @@ a:hover {
 }
 
 .dashboard-card {
-    box-shadow: 0 0 50px #CCC;
+    box-shadow: 0 0 50px #ccc;
     border-radius: 14px;
     padding: 14px;
 }
@@ -152,7 +167,7 @@ a:hover {
     column-gap: 20px;
 }
 
-.d-grid-chart{
+.d-grid-chart {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
@@ -180,9 +195,8 @@ body {
     font-family: roboto-regular;
 }
 
-
 .icon-button {
-    background-color: #CCC;
+    background-color: #ccc;
     border: none;
     color: white;
     padding: 6px 8px;
@@ -193,14 +207,14 @@ body {
 input,
 textarea,
 select {
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
     outline: none;
     border-radius: var(--input-border-radius);
     padding: 12px;
     width: 100%;
     box-sizing: border-box;
     margin: 10px 0;
-    background-color: #EEE;
+    background-color: #eee;
 }
 
 input:hover,
@@ -224,7 +238,7 @@ select:focus {
     bottom: 0;
     width: var(--side-bar-width);
     padding: var(--side-bar-padding);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .side-bar .brand-logo-text {
@@ -247,12 +261,12 @@ select:focus {
 
 .side-bar ul li a div.active {
     background-color: #0c75bb;
-    color: #FFF;
+    color: #fff;
 }
 
 .side-bar ul li a div:hover {
     background-color: #0c75bb;
-    color: #FFF;
+    color: #fff;
     transition-duration: 500ms;
 }
 
@@ -264,16 +278,15 @@ select:focus {
     text-align: center;
 }
 
-.text-center1{
+.text-center1 {
     display: flex;
     justify-content: center;
     height: 100px;
     align-items: center;
 }
 
-.dateInput{
+.dateInput {
     width: 50%;
-    
 }
 
 .text-muted {
@@ -296,66 +309,67 @@ select:focus {
     right: 0;
 }
 
-.wrap-content>div {
+.wrap-content > div {
     padding: 20px;
 }
 
-/*  Inoush */
+
 .container{
-    background-color: gainsboro;
+    background-color: #ffffff;
+    border: var(--primary-color) solid 2px;
     display: inline-block;
     width: 50%;
     position: relative;
     margin-left: 22%;
     margin-top: 8%;
+    border-radius: 8px;
 
 }
 
-.sous-container{
+.sous-container {
     display: flex;
 }
 
-.separator{
+.separator {
     background-color: white;
     height: 50px;
     width: 1px;
 }
 
-.text-position{
+.text-position {
     text-align: center;
     font-size: 10px;
 }
 
-.color{
+.color {
     color: var(--primary-color);
 }
 /* //======= */
 
-.form-group{
+.form-group {
     align-items: center;
     text-align: center;
     width: 400px;
 }
 
-.btn-deconnect{
+.btn-deconnect {
     width: 20%;
-    background:#0d6dad ;
+    background: #0d6dad;
     color: #ffffff;
     height: 30px;
     border: none;
     border-radius: 5px;
 }
 
-.dam{
+.dam {
     justify-content: center;
     align-items: center;
     display: flex;
     margin: 50px !important;
     background-color: #0d6dad;
-  
 }
 
-.dan{
+.dan {
     padding: 50px;
     background-color: whitesmoke;
     border-radius: 15px;

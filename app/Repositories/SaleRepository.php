@@ -43,12 +43,12 @@ class SaleRepository implements SaleInterface
     
         // Récupération du nombre total de ventes par mois
         $data = Sale::select(
-            DB::raw('strftime("%m", created_at) as month'), // Extrait le mois de la date
+            DB::raw('strftime("%m", date) as month'), // Extrait le mois de la date
             DB::raw('COUNT(*) as total_sales') // Compte le nombre de ventes
         )
-        ->whereYear('created_at', $year) // Filtre pour l'année en cours
-        ->groupBy(DB::raw('strftime("%m", created_at)')) // Groupe par mois
-        ->orderBy(DB::raw('strftime("%m", created_at)')) // Trie par mois
+        ->whereYear('date', $year) // Filtre pour l'année en cours
+        ->groupBy(DB::raw('strftime("%m", date)')) // Groupe par mois
+        ->orderBy(DB::raw('strftime("%m", date)')) // Trie par mois
         ->get();
     
         // Tableaux pour stocker les mois et le nombre de ventes
@@ -83,15 +83,14 @@ class SaleRepository implements SaleInterface
     $year = date('Y'); // L'année actuelle
 
     // Récupération des chiffres d'affaires totaux par mois
-    $data = SaleItem::select(
-        DB::raw('strftime("%m", created_at) as month'), // Extrait le mois de la date
-        DB::raw('SUM(price * quantity) as total_revenue') // Calcule le chiffre d'affaires total
-    )
-    ->whereYear('created_at', $year) // Filtre pour l'année en cours
-    ->groupBy(DB::raw('strftime("%m", created_at)')) // Groupe par mois
-    ->orderBy(DB::raw('strftime("%m", created_at)')) // Trie par mois
-    ->orderBy(DB::raw('strftime("%Y", created_at)')) // Trie par mois
-    ->get();
+    $data = DB::table('sale_items')
+        ->select(DB::raw("strftime('%Y', Sale_date) as year"),
+                DB::raw("strftime('%m', Sale_date) as month"),
+                DB::raw("SUM(price * quantity ) as total_revenue "))
+                ->groupBy('sale_id', 'desc')
+                ->orderBy('total_revenue')
+                ->orderBy('%m', 'desc')
+                ->get();
 
     // Tableaux pour stocker les mois et les chiffres d'affaires
     $months = [];
@@ -114,7 +113,7 @@ class SaleRepository implements SaleInterface
     $chart = new SaleChart;
     $chart->labels($months);
     $chart->dataset("Chiffre d'Affaires par Mois", "bar", $revenues)->options([
-        'backgroundColor' => '#046e24',
+        'backgroundColor' => "#dd4c09"
     ]);
 
     return $chart;
@@ -131,45 +130,8 @@ public function salesAmounts()
 
 public function monthlySalesChart()
     {
-        // $year = date('Y');
-
-        // $data = DB::table('sale_items')
-        // ->select(DB::raw("strftime('year', date) as year"),
-        //         DB::raw("strftime('month', date) as month"),
-        //         DB::raw("SUM(amount) as total_amount"))
-        // ->groupBy('year', 'month')
-        // ->orderBy('year', 'asc')
-        // ->orderBy('month', 'asc')
-        // ->get();
-
-
-        // $data = SaleItem::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, SUM(amount) as total_amount')
-        //     ->groupBy('year', 'month')
-        //     ->orderBy('year', 'asc')
-        //     ->get();
-
-        // $months = [];
-        // $amounts = [];
-
-        // foreach ($data as $item) {
-        //     $months[] = Carbon::createFromDate($item->year, $item->month, 1)->format('F Y');
-        //     $amounts[] = $item->total_amount;
-        // }
-
-        // return $data;
+        // 
     }
-
-
-
-// public function totalBySale(){
-//     $data = DB::table('sale')
-//     ->join('sale_items', 'sale.id', '=', 'sale_items.sale_id')
-//     ->select(DB::raw('SUM(sale_items.quantity * sale_items.price) as total_sales'))
-//     ->get();
-
-//     return $data;
-// }
-
 }
 
 ?>

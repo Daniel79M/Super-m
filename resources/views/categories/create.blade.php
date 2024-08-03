@@ -3,13 +3,13 @@
 @section('content')
     @include('includes.sidebar')
 
+
     <div class="wrap-content">
         @include('includes.appbar')
 
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <form action="{{ route('categories.store') }}" class="category-form" method="POST">
             @csrf
-
-            <br /><br /><br /><br />
             <h1>Créer une nouvelle catégorie</h1>
 
             <p>Remplir les informations de la catégorie que vous voulez créer.</p><br />
@@ -19,13 +19,7 @@
                     {!! implode('', $errors->all('<li>:message</li>')) !!}
                 </ul>
             @endif
-
-            {{-- @if ($message = Session::get("error"))
-                <ul class="alert alert-danger">
-                    <li>{{ $message }}</li>
-                </ul>
-            @endif --}}
-
+            
             @if ($message = Session::get("success"))
                 <ul class="alert alert-success">
                     <li>{{ $message }}</li>

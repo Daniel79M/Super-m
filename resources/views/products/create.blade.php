@@ -6,7 +6,7 @@
     <div class="wrap-content">
         @include('includes.appbar')
 
-        Inoush
+        <br /><br /><br />
         <form action="{{ route('products.store') }}" class="category-form" method="POST" enctype="multipart/form-data">
 
             @csrf
