@@ -14,7 +14,7 @@ class ForgotPasswordController extends Controller
         return view('auth.password.email');
     }
 
-    public function sendOtp(Request $request)
+    public function sendOtp(Request $request) 
     {
         $request->validate(['email' => 'required|email']);
 

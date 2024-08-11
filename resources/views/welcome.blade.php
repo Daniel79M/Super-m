@@ -73,7 +73,7 @@
                             <small>F CFA</small>
                         </td>
                         <td class="text-right">
-                            <a href="#!" class="button warning">
+                            <a href="{{ route('reports.index') }}" class="button warning">
                                 <i class="fas fa-arrow-right-long"></i>
                             </a>
                         </td>
