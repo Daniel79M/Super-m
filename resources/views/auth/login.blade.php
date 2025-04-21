@@ -16,7 +16,7 @@
 
                     @csrf
                     <div>
-                        <h1 class="text-center">To log in</h1>
+                        <h1 class="text-center">Se connecter</h1>
                     </div>
 
 

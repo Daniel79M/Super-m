@@ -99,7 +99,7 @@
         </div>
     </div>
     <div class="footer">
-        <h3><span style="color: #007bff;">Super-Market</span> Vous Dit Merci Pour Votre Achat</h3>
+        <h3><span style="color: #007bff;">Mimi Shop</span> Vous Dit Merci Pour Votre Achat</h3>
     </div>
 </body>
 

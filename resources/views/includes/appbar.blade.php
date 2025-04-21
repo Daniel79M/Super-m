@@ -3,7 +3,7 @@
         <tr>
             <td>
                 <a href="{{ route('home') }}">
-                    <b class="title">Home</b>
+                    <b class="title">Accueil</b>
                 </a>
             </td>
             <td class="text-right">

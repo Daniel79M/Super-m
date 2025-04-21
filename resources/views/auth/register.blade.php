@@ -17,8 +17,8 @@
 
                     @csrf
                     <div>
-                        <h1 class="text-center">Registration</h1>
-                        <label for="name">Name</label>
+                        <h1 class="text-center">Inscription</h1>
+                        <label for="name">Nom</label>
                         <input type="text" class="form-control" id="title" name="name">
                         @error('name')
                             {{ $message }}
@@ -36,7 +36,7 @@
                     </div>
 
                     <div>
-                        <label for="password">Password</label>
+                        <label for="password">Mot de passe</label>
                         <input type="password" class="form-control" id="password" name="password">
                         @error('password')
                             {{ $message }}
@@ -44,7 +44,7 @@
                     </div>
 
 
-                    <button class="button w-100 primary">Register</button>
+                    <button class="button w-100 primary">S'inscrire</button>
                     <br /><br />
 
                     <div>

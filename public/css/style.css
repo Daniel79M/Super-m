@@ -260,12 +260,12 @@ select:focus {
 }
 
 .side-bar ul li a div.active {
-    background-color: #0c75bb;
+    background-color: #011f33;
     color: #fff;
 }
 
 .side-bar ul li a div:hover {
-    background-color: #0c75bb;
+    background-color: #012035;
     color: #fff;
     transition-duration: 500ms;
 }
@@ -366,7 +366,7 @@ select:focus {
     align-items: center;
     display: flex;
     margin: 50px !important;
-    background-color: #0d6dad;
+    background-color: #021f32;
 }
 
 .dan {

@@ -1,6 +1,6 @@
 <div class="side-bar">
     <a href="" class="brand-logo-text">
-        Super-market
+        Mimi Shop
     </a>
     <br /><br />
     
